@@ -1,34 +1,30 @@
 class House
 
-    def initialize(pirate = false)
+    def initialize(start_words = "This is")
         @segments = []
-        @pirate = pirate
+        @start_words = start_words
     end
 
-    def lyrics
-        "#{start_words}" + @segments[2] + @segments[1] + @segments[0]
+    def lyrics(number)
+        "#{@start_words}" 
     end
 
     def push_lines_to_segments
         @segments[0] = "in the house that Jack built."
         @segments[1] = "the malt that lay "
         @segments[2] = "the rat that ate "
+        @segments[3] = "the cat that killed" 
+        @segments[4] = "the dog that worried"
+        @segments[5] = "the cow with the crumpled horn that tossed"
+        @segments[6] = "the maiden all forlorn that milked"
+        @segments[7] = "the man all tattered and torn that kissed"
+        @segments[8] = "the priest all shaven and shorn that married"
+        @segments[9] = "the rooster that crowed in the morn that woke"
+        @segments[10] = "the farmer sowing his corn that kept"
+        @segments[11] = "the horse and the hound and the horn that belonged to"
     end
 
     def line(number)
-         
-    end
-
-    def start_words
-        if @pirate == false
-            "This is "
-        else
-            "Thar be "
-        end
-    end
-
-
-    def old_line(number)
         case number
         when 1
             "This is the house that Jack built.\n"
@@ -90,5 +86,5 @@ end
 
 practice = House.new(true)
 practice.push_lines_to_segments
-puts practice.lyrics
+puts practice.lyrics(3)
 
