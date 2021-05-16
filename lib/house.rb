@@ -1,7 +1,10 @@
 class House
 
+    attr_reader :segments
+
     def initialize(start_words = "This is")
         @segments = []
+        push_lines_to_segments
         @start_words = start_words
     end
 
@@ -18,14 +21,18 @@ class House
         @segments[9] = "the rooster that crowed in the morn that woke"
         @segments[10] = "the farmer sowing his corn that kept"
         @segments[11] = "the horse and the hound and the horn that belonged to"
+        @segments.reverse
     end
+
+    
 
     def line(number)
         case number
         when 1
-            @start_words + " the house that Jack built.\n"
+            @start_words + " #{@segments[number - 1]}\n"
+           #@start_words + "the house that Jack built."
         when 2
-            @start_words + " the malt that lay in the house that Jack built.\n"
+            @start_words + " #{@segments[number - 1]}" + " #{@segments[number - 2]}\n"
         when 3
             @start_words + " the rat that ate the malt that lay in the house that Jack built.\n"
         when 4
@@ -81,3 +88,5 @@ This is the horse and the hound and the horn that belonged to the farmer sowing 
 end
 
 
+# h = House.new()
+# puts h.segments
