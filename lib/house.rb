@@ -9,19 +9,18 @@ class House
     end
 
     def push_lines_to_segments
-        @segments[0] = "the house that Jack built."
-        @segments[1] = "the malt that lay in"
-        @segments[2] = "the rat that ate "
-        @segments[3] = "the cat that killed" 
-        @segments[4] = "the dog that worried"
-        @segments[5] = "the cow with the crumpled horn that tossed"
-        @segments[6] = "the maiden all forlorn that milked"
-        @segments[7] = "the man all tattered and torn that kissed"
-        @segments[8] = "the priest all shaven and shorn that married"
-        @segments[9] = "the rooster that crowed in the morn that woke"
-        @segments[10] = "the farmer sowing his corn that kept"
-        @segments[11] = "the horse and the hound and the horn that belonged to"
-        @segments.reverse
+        @segments[0]  = "the horse and the hound and the horn that belonged to"
+        @segments[1]  = "the farmer sowing his corn that kept"
+        @segments[2]  = "the rooster that crowed in the morn that woke"
+        @segments[3]  = "the priest all shaven and shorn that married" 
+        @segments[4]  = "the man all tattered and torn that kissed"
+        @segments[5]  = "the maiden all forlorn that milked"
+        @segments[6]  = "the cow with the crumpled horn that tossed"
+        @segments[7]  = "the dog that worried"
+        @segments[8]  = "the cat that killed"
+        @segments[9]  = "the rat that ate"
+        @segments[10] = "the malt that lay in"
+        @segments[11] = "the house that Jack built"
     end
 
     
@@ -29,10 +28,9 @@ class House
     def line(number)
         case number
         when 1
-            @start_words + " #{@segments[number - 1]}\n"
-           #@start_words + "the house that Jack built."
+            "#{@start_words} %s.\n" % @segments.last(number).join(' ')
         when 2
-            @start_words + " #{@segments[number - 1]}" + " #{@segments[number - 2]}\n"
+            "#{@start_words} %s.\n" % @segments.last(number).join(' ')
         when 3
             @start_words + " the rat that ate the malt that lay in the house that Jack built.\n"
         when 4
