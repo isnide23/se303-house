@@ -10,9 +10,19 @@ class HouseTest < Minitest::Test
     assert_equal expected, House.new.line(1)
   end
 
+  def test_line_1_pirate
+    expected = "Thar be the house that Jack built.\n"
+    assert_equal expected, House.new("Thar be").line(1)
+  end
+
   def test_line_2
     expected = "This is the malt that lay in the house that Jack built.\n"
     assert_equal expected, House.new.line(2)
+  end
+
+  def test_line_2_pirate
+    expected = "Thar be the malt that lay in the house that Jack built.\n"
+    assert_equal expected, House.new("Thar be").line(2)
   end
 
   def test_line_3
@@ -20,9 +30,19 @@ class HouseTest < Minitest::Test
     assert_equal expected, House.new.line(3)
   end
 
+  def test_line_3_pirate
+    expected = "Thar be the rat that ate the malt that lay in the house that Jack built.\n"
+    assert_equal expected, House.new("Thar be").line(3)
+  end
+
   def test_line_4
     expected = "This is the cat that killed the rat that ate the malt that lay in the house that Jack built.\n"
     assert_equal expected, House.new.line(4)
+  end
+
+  def test_line_4_pirate
+    expected = "Thar be the cat that killed the rat that ate the malt that lay in the house that Jack built.\n"
+    assert_equal expected, House.new("Thar be").line(4)
   end
 
   def test_line_5
