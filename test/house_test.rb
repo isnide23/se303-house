@@ -114,4 +114,14 @@ This is the horse and the hound and the horn that belonged to the farmer sowing 
     assert_equal expected, House.new.recite
   end
 
+def test_random
+  g = RandomHouse.new 
+  puts g.line(2)
+end
+
+def test_random_pirate
+  g = RandomHouse.new("Thar be") 
+  puts g.line(2)
+end
+
 end
