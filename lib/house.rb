@@ -4,7 +4,7 @@ class House
         @end_words = "the house that Jack built."
     end
 
-    def subjects
+    SUBJECTS =
         [
         'the horse and the hound and the horn ',
         'the farmer sowing his corn ',
@@ -18,9 +18,8 @@ class House
         'the rat ',
         'the malt ',
         ]
-    end
 
-    def verbs
+    VERBS =
         [
         'that belonged to',
         'that kept',
@@ -34,26 +33,9 @@ class House
         'that ate',
         'that lay in',
         ]
-    end
-
-
 
     def line_segments
-        (0..10).map { |i| "#{subjects[i]}#{verbs[i]}"}.append(@end_words)
-        # [
-        # 'the horse and the hound and the horn that belonged to',
-        # 'the farmer sowing his corn that kept',
-        # 'the rooster that crowed in the morn that woke',
-        # 'the priest all shaven and shorn that married',
-        # 'the man all tattered and torn that kissed',
-        # 'the maiden all forlorn that milked',
-        # 'the cow with the crumpled horn that tossed',
-        # 'the dog that worried',
-        # 'the cat that killed',
-        # 'the rat that ate',
-        # 'the malt that lay in',
-        # 'the house that Jack built.',
-        # ]
+        (0..10).map { |i| "#{SUBJECTS[i]}#{VERBS[i]}"}.append(@end_words)
     end
 
     def phrase(number)
@@ -75,11 +57,12 @@ class RandomHouse < House
         data.pop
         data.shuffle.append(@end_words)
     end
-
 end
 
-# f = House.new("Thar be") 
-# puts f.recite
-
-# g = RandomHouse.new("Thar be") 
-# puts g.line(2)
+class ShuffleHouse < House
+    def line_segments
+        v = VERBS.shuffle
+        s = SUBJECTS.shuffle
+        (0..10).map { |i| "#{s[i]}#{v[i]}"}.append(@end_words)
+    end
+end

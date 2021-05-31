@@ -124,4 +124,9 @@ def test_random_pirate
   puts g.line(2)
 end
 
+def test_shuffle_house
+  h = ShuffleHouse.new 
+  puts h.line(2)
+end
+
 end
